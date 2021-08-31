@@ -1,0 +1,1 @@
+pyinstaller --onefile --noconsole -i "RARJPEG_Maker_Icon.ico" RARJPEG_Maker.py
