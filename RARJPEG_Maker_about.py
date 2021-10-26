@@ -17,7 +17,7 @@ class about_window(QtWidgets.QMainWindow):
         self.big_icon_data = big_icon.Get_big_icon(big_icon.big_icon_str).scaled(100, 100)
         self.ui.label_10.setPixmap(self.big_icon_data)
         # настройка свойств формы
-        self.setWindowTitle('PDF Toolchain - О программе')
+        self.setWindowTitle('RARJPEG Maker - О программе')
         self.setFixedSize(582, 283)
         self.statusBar().setSizeGripEnabled(False)
         self.setStyleSheet('QMainWindow {background-color: white;}')

@@ -69,7 +69,7 @@ class Ui_AboutWindow(object):
 
     def retranslateUi(self, AboutWindow):
         _translate = QtCore.QCoreApplication.translate
-        AboutWindow.setWindowTitle(_translate("AboutWindow", "PDF Toolchain"))
+        AboutWindow.setWindowTitle(_translate("AboutWindow", "RARJPEG Maker"))
         self.label.setText(_translate("AboutWindow", " ____      _    ____     _ ____  _____ ____   __  __       _\n"
 "|  _ \\    / \\  |  _ \\   | |  _ \\| ____/ ___| |  \\/  | __ _| | _____ _ __\n"
 "| |_) |  / _ \\ | |_) |  | | |_) |  _|| |  _  | |\\/| |/ _` | |/ / _ \\ \'__|\n"
