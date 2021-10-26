@@ -7,7 +7,7 @@
 #  \ \__,_|\__,_|_|   \__|_| |_| |_|_|_| |_|_____|  |_|
 #   \____/
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtCore
 import base64
 import os
 
@@ -16,7 +16,7 @@ def Get_big_icon(image_str):
     with open("big_icon.png", "wb") as big_icon_text:
         big_icon_text.write(ImageStr)
     big_icon_text.close()
-    qp = QtGui.QPixmap("big_icon.png")
+    qp = QtGui.QPixmap("big_icon.png").scaled(100, 100, transformMode=QtCore.Qt.SmoothTransformation)
     os.remove("big_icon.png")
     return(qp)
         

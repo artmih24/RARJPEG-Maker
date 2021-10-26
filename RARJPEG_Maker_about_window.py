@@ -47,8 +47,11 @@ class Ui_AboutWindow(object):
         self.label_7.setGeometry(QtCore.QRect(260, 220, 41, 41))
         self.label_7.setObjectName("label_7")
         self.label_8 = QtWidgets.QLabel(self.centralwidget)
-        self.label_8.setGeometry(QtCore.QRect(10, 10, 101, 101))
+        self.label_8.setGeometry(QtCore.QRect(320, 220, 41, 41))
         self.label_8.setObjectName("label_8")
+        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_9.setGeometry(QtCore.QRect(10, 10, 101, 101))
+        self.label_9.setObjectName("label_9")
         AboutWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(AboutWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 580, 21))
@@ -69,7 +72,7 @@ class Ui_AboutWindow(object):
 "| |_) |  / _ \\ | |_) |  | | |_) |  _|| |  _  | |\\/| |/ _` | |/ / _ \\ \'__|\n"
 "|  _ <  / ___ \\|  _ < |_| |  __/| |__| |_| | | |  | | (_| |   <  __/ |\n"
 "|_| \\_\\/_/   \\_\\_| \\_\\___/|_|   |_____\\____| |_|  |_|\\__,_|_|\\_\\___|_|"))
-        self.label_2.setText(_translate("AboutWindow", "V 1.3.1"))
+        self.label_2.setText(_translate("AboutWindow", "V 1.3.2"))
         self.label_3.setText(_translate("AboutWindow", "Автор программы:"))
         self.label_4.setText(_translate("AboutWindow", "   ____             _             _ _     ____  _  _\n"
 "  / __ \\  __ _ _ __| |_ _ __ ___ (_) |__ |___ \\| || |\n"
@@ -81,6 +84,7 @@ class Ui_AboutWindow(object):
         self.label_6.setText(_translate("AboutWindow", "TextLabel"))
         self.label_7.setText(_translate("AboutWindow", "TextLabel"))
         self.label_8.setText(_translate("AboutWindow", "TextLabel"))
+        self.label_9.setText(_translate("AboutWindow", "TextLabel"))
 
 
 if __name__ == "__main__":

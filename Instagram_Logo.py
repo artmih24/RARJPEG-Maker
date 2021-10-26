@@ -7,7 +7,7 @@
 #  \ \__,_|\__,_|_|   \__|_| |_| |_|_|_| |_|_____|  |_|
 #   \____/
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtCore
 import base64
 import os
 
@@ -16,7 +16,7 @@ def Get_instagram_logo(image_str):
     with open("instagram_logo.png", "wb") as instagram_logo_text:
         instagram_logo_text.write(ImageStr)
     instagram_logo_text.close()
-    qi = QtGui.QPixmap("instagram_logo.png")
+    qi = QtGui.QPixmap("instagram_logo.png").scaled(100, 100, transformMode=QtCore.Qt.SmoothTransformation)
     os.remove("instagram_logo.png")
     return(qi)
         

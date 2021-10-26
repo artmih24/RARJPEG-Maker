@@ -7,7 +7,7 @@
 #  \ \__,_|\__,_|_|   \__|_| |_| |_|_|_| |_|_____|  |_|
 #   \____/
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtCore
 import base64
 import os
 
@@ -16,7 +16,7 @@ def Get_telegram_logo(image_str):
     with open("telegram_logo.png", "wb") as telegram_logo_text:
         telegram_logo_text.write(ImageStr)
     telegram_logo_text.close()
-    qi = QtGui.QPixmap("telegram_logo.png")
+    qi = QtGui.QPixmap("telegram_logo.png").scaled(100, 100, transformMode=QtCore.Qt.SmoothTransformation)
     os.remove("telegram_logo.png")
     return(qi)
         
