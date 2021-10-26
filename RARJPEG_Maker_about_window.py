@@ -50,8 +50,11 @@ class Ui_AboutWindow(object):
         self.label_8.setGeometry(QtCore.QRect(320, 220, 41, 41))
         self.label_8.setObjectName("label_8")
         self.label_9 = QtWidgets.QLabel(self.centralwidget)
-        self.label_9.setGeometry(QtCore.QRect(10, 10, 101, 101))
+        self.label_9.setGeometry(QtCore.QRect(380, 220, 41, 41))
         self.label_9.setObjectName("label_9")
+        self.label_10 = QtWidgets.QLabel(self.centralwidget)
+        self.label_10.setGeometry(QtCore.QRect(10, 10, 101, 101))
+        self.label_10.setObjectName("label_10")
         AboutWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(AboutWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 580, 21))
@@ -85,6 +88,7 @@ class Ui_AboutWindow(object):
         self.label_7.setText(_translate("AboutWindow", "TextLabel"))
         self.label_8.setText(_translate("AboutWindow", "TextLabel"))
         self.label_9.setText(_translate("AboutWindow", "TextLabel"))
+        self.label_10.setText(_translate("AboutWindow", "TextLabel"))
 
 
 if __name__ == "__main__":
