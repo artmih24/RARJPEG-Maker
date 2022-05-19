@@ -60,13 +60,13 @@ class mywindow(QtWidgets.QMainWindow):
         try:
             subprocess.call(f'copy /b "{CmdInputImageName}"+"{CmdInputArchiveName}" "{CmdRARJPEGName}"', shell=True)
         except:
-            if os.path.exists(InputImageName) == True and os.path.exists(InputArchiveName) == True:
+            if os.path.exists(InputImageName) and os.path.exists(InputArchiveName):
                 QMessageBox.critical(s, "RARJPEG Maker", f"Один из файлов {InputImageName} и {InputArchiveName} поврежден.\nОперация прервана", QMessageBox.Ok)
-            elif os.path.exists(InputImageName) == True and os.path.exists(InputArchiveName) == False:
+            elif os.path.exists(InputImageName) and not os.path.exists(InputArchiveName):
                 QMessageBox.critical(s, "RARJPEG Maker", f"Файл {InputArchiveName} не существует.\nОперация прервана", QMessageBox.Ok)
-            elif os.path.exists(InputImageName) == False and os.path.exists(InputArchiveName) == True:
+            elif not os.path.exists(InputImageName) and os.path.exists(InputArchiveName):
                 QMessageBox.critical(s, "RARJPEG Maker", f"Файл {InputImageName} не существует.\nОперация прервана", QMessageBox.Ok)
-            elif os.path.exists(InputImageName) == False and os.path.exists(InputArchiveName) == False:
+            elif not os.path.exists(InputImageName) and not os.path.exists(InputArchiveName):
                 QMessageBox.critical(s, "RARJPEG Maker", f"Файлы {InputImageName} и {InputArchiveName} не существуют.\nОперация прервана", QMessageBox.Ok)
             else:
                 QMessageBox.critical(s, "RARJPEG Maker", f"Файлы {InputImageName} и {InputArchiveName} не существуют.\nОперация прервана", QMessageBox.Ok)
@@ -96,12 +96,13 @@ class mywindow(QtWidgets.QMainWindow):
             self.ui.tableWidget.setItem(0, 0, QTableWidgetItem(''))
             self.ui.tableWidget.setItem(0, 1, QTableWidgetItem(''))
             self.ImageExistsFlag = False
-            if self.ArchiveExistsFlag == True:
+            if self.ArchiveExistsFlag:
                 self.ui.tableWidget.horizontalHeader().resizeSection(0, self.WidthIfArchive)
-        if self.ImageExistsFlag == True and self.ArchiveExistsFlag == True:
-            self.ui.pushButton_3.setEnabled(True)
-        else:
-            self.ui.pushButton_3.setEnabled(False)
+        self.ui.pushButton_3.setEnabled(self.ImageExistsFlag and self.ArchiveExistsFlag)
+        # if self.ImageExistsFlag and self.ArchiveExistsFlag:
+        #     self.ui.pushButton_3.setEnabled(True)
+        # else:
+        #     self.ui.pushButton_3.setEnabled(False)
         #self.ui.lineEdit.setText(InputImageName)
         #if self.ui.lineEdit.text() != "" and self.ui.lineEdit_2.text() != "": self.ui.pushButton_3.setEnabled(True)
         #else: self.ui.pushButton_3.setEnabled(False)
@@ -117,34 +118,39 @@ class mywindow(QtWidgets.QMainWindow):
             self.ui.tableWidget.setItem(1, 0, QTableWidgetItem('Архив:'))
             self.ui.tableWidget.setItem(1, 1, QTableWidgetItem(InputArchiveName))
             self.ArchiveExistsFlag = True
-            if self.ImageExistsFlag == False:
+            if not self.ImageExistsFlag:
                 self.ui.tableWidget.horizontalHeader().resizeSection(0, self.WidthIfArchive)
         else:
             self.ui.tableWidget.setItem(1, 0, QTableWidgetItem(''))
             self.ui.tableWidget.setItem(1, 1, QTableWidgetItem(''))
-        if self.ImageExistsFlag == True and self.ArchiveExistsFlag == True:
-            self.ui.pushButton_3.setEnabled(True)
-        else:
-            self.ui.pushButton_3.setEnabled(False)
+        self.ui.pushButton_3.setEnabled(self.ImageExistsFlag and self.ArchiveExistsFlag)
+        # if self.ImageExistsFlag and self.ArchiveExistsFlag:
+        #     self.ui.pushButton_3.setEnabled(True)
+        # else:
+        #     self.ui.pushButton_3.setEnabled(False)
         #self.ui.lineEdit_2.setText(InputArchiveName)
         #if self.ui.lineEdit.text() != "" and self.ui.lineEdit_2.text() != "": self.ui.pushButton_3.setEnabled(True)
         #else: self.ui.pushButton_3.setEnabled(False)
 
     def ImageUpdated(self):
         self.ImageExistsFlag = True
-        if self.ImageExistsFlag == True and self.ArchiveExistsFlag == True:
-            self.ui.pushButton_3.setEnabled(True)
-        else:
-            self.ui.pushButton_3.setEnabled(False)
+        if not self.ArchiveExistsFlag:
+            self.ui.tableWidget.horizontalHeader().resizeSection(0, self.WidthIfImage)
+        self.ui.pushButton_3.setEnabled(self.ImageExistsFlag and self.ArchiveExistsFlag)
+        # if self.ImageExistsFlag and self.ArchiveExistsFlag:
+        #     self.ui.pushButton_3.setEnabled(True)
+        # else:
+        #     self.ui.pushButton_3.setEnabled(False)
 
     def ArchiveUpdated(self):
         self.ArchiveExistsFlag = True
-        if self.ImageExistsFlag == False:
+        if not self.ImageExistsFlag:
             self.ui.tableWidget.horizontalHeader().resizeSection(0, self.WidthIfArchive)
-        if self.ImageExistsFlag == True and self.ArchiveExistsFlag == True:
-            self.ui.pushButton_3.setEnabled(True)
-        else:
-            self.ui.pushButton_3.setEnabled(False)
+        self.ui.pushButton_3.setEnabled(self.ImageExistsFlag and self.ArchiveExistsFlag)
+        # if self.ImageExistsFlag and self.ArchiveExistsFlag:
+        #     self.ui.pushButton_3.setEnabled(True)
+        # else:
+        #     self.ui.pushButton_3.setEnabled(False)
 
     def aboutClicked(self):
         self.about_window.show()
@@ -160,7 +166,8 @@ class mywindow(QtWidgets.QMainWindow):
  / / _` |/ _` | '__| __| '_ ` _ \| | '_ \  __) | || |_
 | | (_| | (_| | |  | |_| | | | | | | | | |/ __/|__   _|
  \ \__,_|\__,_|_|   \__|_| |_| |_|_|_| |_|_____|  |_|
-  \____/''')"""
+  \____/''')
+"""
 
     def closeEvent(self, e) -> None:
         self.about_window.close()
